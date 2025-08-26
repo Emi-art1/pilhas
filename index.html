@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energia Química: Pilhas, Baterias e Eletroquímica</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero-pattern {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .section-gradient {
+            background: linear-gradient(to right, #f8fafc, #e2e8f0);
+        }
+        .battery-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .battery-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .chemistry-animation {
+            animation: pulse 4s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+        .scroll-indicator {
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        .active-section {
+            background: linear-gradient(to right, #3b82f6, #1d4ed8);
+            color: white !important;
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Header/Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <i class="fas fa-battery-full text-2xl text-blue-600 mr-2"></i>
+                    <span class="font-bold text-xl text-gray-800">EnergiaQuímica</span>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-gray-600 hover:text-blue-600">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+                
+                <!-- Navigation Links -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#diferenca" class="text-gray-600 hover:text-blue-600 font-medium nav-link">Diferença</a>
+                    <a href="#serie" class="text-gray-600 hover:text-blue-600 font-medium nav-link">Série</a>
+                    <a href="#paralelo" class="text-gray-600 hover:text-blue-600 font-medium nav-link">Paralelo</a>
+                    <a href="#baterias" class="text-gray-600 hover:text-blue-600 font-medium nav-link">Baterias</a>
+                    <a href="#voltaica" class="text-gray-600 hover:text-blue-600 font-medium nav-link">Voltaica</a>
+                    <a href="#ferrugem" class="text-gray-600 hover:text-blue-600 font-medium nav-link">Ferrugem</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#diferenca" class="block px-3 py-2 text-gray-600 hover:text-blue-600">Diferença Pilhas vs Baterias</a>
+                <a href="#serie" class="block px-3 py-2 text-gray-600 hover:text-blue-600">Associação em Série</a>
+                <a href="#paralelo" class="block px-3 py-2 text-gray-600 hover:text-blue-600">Associação em Paralelo</a>
+                <a href="#baterias" class="block px-3 py-2 text-gray-600 hover:text-blue-600">Tipos de Baterias</a>
+                <a href="#voltaica" class="block px-3 py-2 text-gray-600 hover:text-blue-600">Célula Voltaica</a>
+                <a href="#ferrugem" class="block px-3 py-2 text-gray-600 hover:text-blue-600">Ferrugem</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-pattern text-white pt-32 pb-20">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Energia Química em Ação</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+                Explorando o fascinante mundo das pilhas, baterias e processos eletroquímicos que alimentam nosso cotidiano
+            </p>
+            <div class="scroll-indicator">
+                <i class="fas fa-chevron-down text-3xl animate-bounce"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 py-16">
+        <!-- Diferença entre Pilhas e Baterias -->
+        <section id="diferenca" class="mb-20 section-gradient rounded-lg p-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                <i class="fas fa-question-circle text-blue-600 mr-3"></i>
+                Qual a diferença entre pilhas e baterias?
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md battery-card">
+                    <h3 class="text-xl font-semibold text-blue-600 mb-4">
+                        <i class="fas fa-battery-quarter mr-2"></i>Pilhas
+                    </h3>
+                    <p class="text-gray-700 mb-4">
+                        <strong>Pilhas</strong> são dispositivos eletroquímicos individuais que convertem energia química em energia elétrica através de reações de oxirredução. São unidades únicas e autônomas.
+                    </p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2 mb-4">
+                        <li>Dispositivo eletroquímico único</li>
+                        <li>Conversão direta de energia química em elétrica</li>
+                        <li>Geralmente não recarregáveis (descarte após uso)</li>
+                        <li>Menor capacidade energética</li>
+                        <li>Tensão típica: 1,5V (pilhas comuns)</li>
+                    </ul>
+                    <div class="mt-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/af664b52-b586-42aa-8b5a-83860a6d7fdd.png" alt="Representação diagramática de uma pilha comum mostrando os componentes internos: ânodo, cátodo e eletrólito" class="rounded-lg w-full h-48 object-cover">
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-md battery-card">
+                    <h3 class="text-xl font-semibold text-green-600 mb-4">
+                        <i class="fas fa-car-battery mr-2"></i>Baterias
+                    </h3>
+                    <p class="text-gray-700 mb-4">
+                        <strong>Baterias</strong> são conjuntos de duas ou mais pilhas (células eletroquímicas) conectadas entre si, trabalhando em conjunto para fornecer maior tensão, corrente ou capacidade.
+                    </p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2 mb-4">
+                        <li>Conjunto de múltiplas células/pilhas</li>
+                        <li>Muitas são recarregáveis</li>
+                        <li>Maior capacidade e duração</li>
+                        <li>Maior tensão e corrente disponível</li>
+                        <li>Sistemas de gestão de energia integrados</li>
+                    </ul>
+                    <div class="mt-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1f3221d5-24e6-4e34-ad17-03eabbbb445f.png" alt="Visão interna de uma bateria de carro mostrando múltiplas células conectadas em série com bornes positivos e negativos" class="rounded-lg w-full h-48 object-cover">
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 bg-blue-50 p-6 rounded-lg">
+                <h4 class="text-xl font-semibold text-blue-800 mb-3">Comparação Direta</h4>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white rounded-lg">
+                        <thead class="bg-blue-100">
+                            <tr>
+                                <th class="px-4 py-2">Característica</th>
+                                <th class="px-4 py-2">Pilhas</th>
+                                <th class="px-4 py-2">Baterias</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b">
+                                <td class="px-4 py-2 font-medium">Composição</td>
+                                <td class="px-4 py-2">Célula única</td>
+                                <td class="px-4 py-2">Múltiplas células</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-4 py-2 font-medium">Recarregável</td>
+                                <td class="px-4 py-2">Geralmente não</td>
+                                <td class="px-4 py-2">Frequentemente sim</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-4 py-2 font-medium">Capacidade</td>
+                                <td class="px-4 py-2">Baixa a média</td>
+                                <td class="px-4 py-2">Alta</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-4 py-2 font-medium">Aplicações</td>
+                                <td class="px-4 py-2">Dispositivos pequenos</td>
+                                <td class="px-4 py-2">Veículos, sistemas</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Associação em Série -->
+        <section id="serie" class="mb-20 section-gradient rounded-lg p-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                <i class="fas fa-link text-red-600 mr-3"></i>
+                O que é uma associação em série?
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <p class="text-gray-700 mb-6 text-lg">
+                        A <strong>associação em série</strong> é uma configuração onde os componentes elétricos (pilhas, baterias, resistores) são conectados sequencialmente, formando um único caminho para a corrente elétrica.
+                    </p>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+                        <h4 class="text-xl font-semibold text-red-600 mb-3">Características Principais</h4>
+                        <ul class="list-disc list-inside text-gray-600 space-y-2">
+                            <li><strong>Tensão Total:</strong> Soma das tensões individuais (V<sub>total</sub> = V<sub>1</sub> + V<sub>2</sub> + ... + V<sub>n</sub>)</li>
+                            <li><strong>Corrente:</strong> A mesma corrente passa por todos os componentes</li>
+                            <li><strong>Resistência Interna:</strong> Soma das resistências individuais</li>
+                            <li><strong>Vantagem:</strong> Aumenta a tensão disponível</li>
+                            <li><strong>Desvantagem:</strong> Falha de um componente interrompe todo o circuito</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h4 class="text-xl font-semibold text-red-600 mb-3">Aplicações Práticas</h4>
+                        <ul class="list-disc list-inside text-gray-600 space-y-2">
+                            <li>Baterias de automóveis (6 células de 2V → 12V)</li>
+                            <li>Pilhas em controles remotos (2 pilhas de 1,5V → 3V)</li>
+                            <li>Lâmpadas de árvore de Natal antigas</li>
+                            <li>Sistemas de alta tensão</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h4 class="text-xl font-semibold text-red-600 mb-4">Diagrama de Associação em Série</h4>
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c4d28d2f-fb37-4fa1-ae49-ee8cce0b1344.png" alt="Diagrama esquemático mostrando três pilhas conectadas em série com setas indicando o fluxo de corrente sequencial através de cada componente" class="rounded-lg w-full h-64 object-cover mb-4">
+                        
+                        <div class="bg-red-50 p-4 rounded-lg">
+                            <h5 class="font-semibold text-red-800 mb-2">Fórmula da Tensão em Série</h5>
+                            <p class="text-red-700 font-mono text-lg">
+                                V<sub>total</sub> = V<sub>1</sub> + V<sub>2</sub> + V<sub>3</sub> + ... + V<sub>n</sub>
+                            </p>
+                        </div>
+
+                        <div class="mt-4 bg-gray-100 p-4 rounded-lg">
+                            <h5 class="font-semibold mb-2">Exemplo Prático</h5>
+                            <p class="text-gray-700">
+                                3 pilhas de 1,5V em série = 4,5V totais<br>
+                                Corrente idêntica em todas as pilhas
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Associação em Paralelo -->
+        <section id="paralelo" class="mb-20 section-gradient rounded-lg p-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                <i class="fas fa-project-diagram text-green-600 mr-3"></i>
+                O que é uma associação em paralelo?
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <p class="text-gray-700 mb-6 text-lg">
+                        A <strong>associação em paralelo</strong> é uma configuração onde os componentes elétricos são conectados em múltiplos caminhos, permitindo que a corrente elétrica se divida entre eles.
+                    </p>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+                        <h4 class="text-xl font-semibold text-green-600 mb-3">Características Principais</h4>
+                        <ul class="list-disc list-inside text-gray-600 space-y-2">
+                            <li><strong>Tensão:</strong> Igual em todos os componentes</li>
+                            <li><strong>Corrente Total:</strong> Soma das correntes individuais</li>
+                            <li><strong>Resistência Equivalente:</strong> Menor que a menor resistência individual</li>
+                            <li><strong>Vantagem:</strong> Maior capacidade corrente e confiabilidade</li>
+                            <li><strong>Desvantagem:</strong> Tensão não aumenta</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h4 class="text-xl font-semibold text-green-600 mb-3">Aplicações Práticas</h4>
+                        <ul class="list-disc list-inside text-gray-600 space-y-2">
+                            <li>Bancos de baterias em no-breaks</li>
+                            <li>Sistemas de energia solar</li>
+                            <li>Centrais telefônicas</li>
+                            <li>Sistemas de emergência</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h4 class="text-xl font-semibold text-green-600 mb-4">Diagrama de Associação em Paralelo</h4>
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/536a491a-cf81-4a76-a450-c6cfcdf152a1.png" alt="Diagrama esquemático mostrando três pilhas conectadas em paralelo com caminhos múltiplos para o fluxo de corrente e tensão igual em todos os componentes" class="rounded-lg w-full h-64 object-cover mb-4">
+                        
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <h5 class="font-semibold text-green-800 mb-2">Fórmula da Corrente em Paralelo</h5>
+                            <p class="text-green-700 font-mono text-lg">
+                                I<sub>total</sub> = I<sub>1</sub> + I<sub>2</sub> + I<sub>3</sub> + ... + I<sub>n</sub>
+                            </p>
+                        </div>
+
+                        <div class="mt-4 bg-gray-100 p-4 rounded-lg">
+                            <h5 class="font-semibold mb-2">Exemplo Prático</h5>
+                            <p class="text-gray-700">
+                                3 pilhas de 1,5V em paralelo = 1,5V totais<br>
+                                Corrente total = soma das correntes individuais<br>
+                                Maior autonomia e confiabilidade
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 bg-yellow-50 p-6 rounded-lg">
+                <h4 class="text-xl font-semibold text-yellow-800 mb-4">Comparação: Série vs Paralelo</h4>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white rounded-lg">
+                        <thead class="bg-yellow-100">
+                            <tr>
+                                <th class="px-4 py-2">Aspecto</th>
+                                <th class="px-4 py-2">Série</th>
+                                <th class="px-4 py-2">Paralelo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b">
+                                <td class="px-4 py-2 font-medium">Tensão</td>
+                                <td class="px-4 py-2">Soma das tensões</td>
+                                <td class="px-4 py-2">Igual à menor tensão</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-4 py-2 font-medium">Corrente</td>
+                                <td class="px-4 py-2">Igual em todos</td>
+                                <td class="px-4 py-2">Divide-se</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-4 py-2 font-medium">Confiabilidade</td>
+                                <td class="px-4 py-2">Baixa (falha única)</td>
+                                <td class="px-4 py-2">Alta (tolerante a falhas)</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-4 py-2 font-medium">Aplicação</td>
+                                <td class="px-4 py-2">Alta tensão</td>
+                                <td class="px-4 py-2">Alta corrente</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Baterias: Íon-Lítio vs Chumbo-Ácido -->
+        <section id="baterias" class="mb-20 section-gradient rounded-lg p-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                <i class="fas fa-battery-three-quarters text-purple-600 mr-3"></i>
+                Vantagens e Desvantagens: Baterias de Íon-Lítio vs Chumbo-Ácido
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+                <!-- Bateria de Íon-Lítio -->
+                <div class="bg-white p-6 rounded-lg shadow-md battery-card">
+                    <h3 class="text-xl font-semibold text-purple-600 mb-4">
+                        <i class="fas fa-mobile-alt mr-2"></i>Baterias de Íon-Lítio
+                    </h3>
+                    
+                    <div class="mb-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5b8398c8-293c-4491-803a-f9075ca90cd5.png" alt="Bateria de íon-lítio moderna mostrando estrutura interna de células empilhadas com componentes eletrônicos de controle" class="rounded-lg w-full h-48 object-cover">
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-green-800 mb-2">✓ Vantagens</h4>
+                            <ul class="list-disc list-inside text-green-700 text-sm space-y-1">
+                                <li>Alta densidade energética</li>
+                                <li>Longa vida útil (500-1000 ciclos)</li>
+                                <li>Baixa autodescarga (1-2% ao mês)</li>
+                                <li>Alta eficiência (95-99%)</li>
+                                <li>Peso leve</li>
+                                <li>Sem efeito memória</li>
+                                <li>Carregamento rápido</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-red-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-red-800 mb-2">✗ Desvantagens</h4>
+                            <ul class="list-disc list-inside text-red-700 text-sm space-y-1">
+                                <li>Alto custo inicial</li>
+                                <li>Sensível a temperaturas extremas</li>
+                                <li>Risco de incêndio se danificada</li>
+                                <li>Necessita circuito de proteção</li>
+                                <li>Degradação com o tempo</li>
+                                <li>Complexo descarte/recyclagem</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 bg-blue-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-blue-800 mb-2">Aplicações Típicas</h4>
+                        <p class="text-blue-700 text-sm">
+                            Smartphones, laptops, veículos elétricos, drones, sistemas de energia solar residencial, dispositivos médicos portáteis
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Bateria de Chumbo-Ácido -->
+                <div class="bg-white p-6 rounded-lg shadow-md battery-card">
+                    <h3 class="text-xl font-semibold text-orange-600 mb-4">
+                        <i class="fas fa-car mr-2"></i>Baterias de Chumbo-Ácido
+                    </h3>
+                    
+                    <div class="mb-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/780ac7e0-48f1-471f-ba6f-19e5012e3e63.png" alt="Bateria de chumbo-ácido automotiva mostrando placas de chumbo imersas em solução eletrolítica com bornes robustos" class="rounded-lg w-full h-48 object-cover">
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-green-800 mb-2">✓ Vantagens</h4>
+                            <ul class="list-disc list-inside text-green-700 text-sm space-y-1">
+                                <li>Baixo custo de fabricação</li>
+                                <li>Tecnologia madura e confiável</li>
+                                <li>Alta corrente de descarga</li>
+                                <li>Tolerante a abusos</li>
+                                <li>Fácil reciclagem (98% reciclável)</li>
+                                <li>Ampla disponibilidade</li>
+                                <li>Bom desempenho em frio</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-red-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-red-800 mb-2">✗ Desvantagens</h4>
+                            <ul class="list-disc list-inside text-red-700 text-sm space-y-1">
+                                <li>Baixa densidade energética</li>
+                                <li>Peso muito elevado</li>
+                                <li>Curta vida útil (200-300 ciclos)</li>
+                                <li>Alta autodescarga (5-10% ao mês)</li>
+                                <li>Manutenção necessária</li>
+                                <li>Efeito memória</li>
+                                <li>Lenta recarga</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 bg-blue-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-blue-800 mb-2">Aplicações Típicas</h4>
+                        <p class="text-blue-700 text-sm">
+                            Automóveis, no-breaks, sistemas de alarme, empilhadeiras, sistemas de energia de backup, iluminação de emergência
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabela Comparativa Detalhada -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Comparação Técnica Detalhada</h3>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white">
+                        <thead class="bg-gray-100">
+                            <tr>
+                                <th class="px-4 py-2 text-left">Parâmetro</th>
+                                <th class="px-4 py-2 text-center">Íon-Lítio</th>
+                                <th class="px-4 py-2 text-center">Chumbo-Ácido</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b">
+                                <td class="px-4 py-2 font-medium">Densidade Energética (Wh/kg)</td>
+                                <td class="px-4 py-2 text-center">100-265</td>
+                                <td class="px-4 py-2 text-center">30-50</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-4 py-2 font-medium">Vida Útil (ciclos)</td>
+                                <td class="px-4 py-2 text-center">500-2000</td>
+                                <td class="px-4 py-2 text-center">200-300</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-4 py-2 font-medium">Eficiência</td>
+                                <td class="px-4 py-2 text-center">95-99%</td>
+                                <td class="px-4 py-2 text-center">70-85%</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-4 py-2 font-medium">Autodescarga Mensal</td>
+                                <td class="px-4 py-2 text-center">1-2%</td>
+                                <td class="px-4 py-2 text-center">5-10%</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-4 py-2 font-medium">Custo por kWh</td>
+                                <td class="px-4 py-2 text-center">Alto</td>
+                                <td class="px-4 py-2 text-center">Baixo</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-4 py-2 font-medium">Temperatura Operacional</td>
+                                <td class="px-4 py-2 text-center">0°C a 45°C</td>
+                                <td class="px-4 py-2 text-center">-20°C a 50°C</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Célula Voltaica -->
+        <section id="voltaica" class="mb-20 section-gradient rounded-lg p-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                <i class="fas fa-atom text-indigo-600 mr-3"></i>
+                O que é uma célula voltaica?
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <p class="text-gray-700 mb-6 text-lg">
+                        A <strong>célula voltaica</strong> (também conhecida como pilha voltaica ou célula galvânica) foi inventada por Alessandro Volta em 1800 e é considerada a primeira bateria elétrica da história.
+                    </p>
+
+                    <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+                        <h4 class="text-xl font-semibold text-indigo-600 mb-3">Princípio de Funcionamento</h4>
+                        <p class="text-gray-700 mb-4">
+                            A célula voltaica converte energia química em energia elétrica através de reações espontâneas de oxirredução (redox) entre dois metais diferentes imersos em uma solução eletrolítica.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-600 space-y-2">
+                            <li>Ânodo: Eletrodo onde ocorre a oxidação</li>
+                            <li>Cátado: Eletrodo onde ocorre a redução</li>
+                            <li>Eletrólito: Solução condutora de íons</li>
+                            <li>Ponte salina: Conduz íons entre os compartimentos</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h4 class="text-xl font-semibold text-indigo-600 mb-3">Componentes da Célula Voltaica Original</h4>
+                        <ul class="list-disc list-inside text-gray-600 space-y-2">
+                            <li>Discos de zinco (ânodo)</li>
+                            <li>Discos de cobre (cátodo)</li>
+                            <li>Discos de papelão embebido em salmoura (eletrólito)</li>
+                            <li>Empilhamento alternado dos discos</li>
+                            <li>Tensão: aproximadamente 0,76V per par Zn-Cu</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+                        <h4 class="text-xl font-semibold text-indigo-600 mb-4">Diagrama da Célula Voltaica</h4>
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/afe8ac64-8356-4a1f-99e7-7e2a207cb82e.png" alt="Diagrama detalhado de uma célula voltaica mostrando ânodo de zinco, cátodo de cobre, ponte salina e fluxo de elétrons através do circuito externo" class="rounded-lg w-full h-64 object-cover mb-4">
+                        
+                        <div class="bg-indigo-50 p-4 rounded-lg">
+                            <h5 class="font-semibold text-indigo-800 mb-2">Reações Químicas</h5>
+                            <p class="text-indigo-700 text-sm">
+                                <strong>Oxidação no Ânodo (Zn):</strong><br>
+                                Zn → Zn²⁺ + 2e⁻<br><br>
+                                <strong>Redução no Cátodo (Cu):</strong><br>
+                                Cu²⁺ + 2e⁻ → Cu
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h4 class="text-xl font-semibold text-indigo-600 mb-3">Significado Histórico</h4>
+                        <p class="text-gray-700 mb-4">
+                            A invenção da célula voltaica em 1800 marcou o início da eletroquímica moderna e permitiu:
+                        </p>
+                        <ul class="list-disc list-inside text-gray-600 space-y-2">
+                            <li>Primeira fonte contínua de corrente elétrica</li>
+                            <li>Descoberta da eletrólise por Humphry Davy</li>
+                            <li>Desenvolvimento do eletromagnetismo</li>
+                            <li>Revolução nas comunicações telegráficas</li>
+                            <li>Base para todas as baterias modernas</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 bg-yellow-50 p-6 rounded-lg">
+                <h4 class="text-xl font-semibold text-yellow-800 mb-3">Aplicações Modernas Derivadas</h4>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <h5 class="font-semibold mb-2">Pilhas Comuns</h5>
+                        <ul class="list-disc list-inside text-yellow-700">
+                            <li>Pilhas alcalinas</li>
+                            <li>Pilhas de zinco-carbono</li>
+                            <li>Baterias de níquel-cádmio</li>
+                            <li>Baterias de íon-lítio</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-semibold mb-2">Sistemas Especializados</h5>
+                        <ul class="list-disc list-inside text-yellow-700">
+                            <li>Células de combustível</li>
+                            <li>Baterias de fluxo</li>
+                            <li>Sistemas de corrosão</li>
+                            <li>Proteção catódica</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ferrugem -->
+        <section id="ferrugem" class="mb-20 section-gradient rounded-lg p-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                <i class="fas fa-rust text-orange-600 mr-3"></i>
+                O que é ferrugem?
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <p class="text-gray-700 mb-6 text-lg">
+                        A <strong>ferrugem</strong> é o produto da corrosão eletroquímica do ferro e seus ligas (aço, ferro fundido), resultante da reação do metal com oxigênio e água na presença de um eletrólito.
+                    </p>
+
+                    <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+                        <h4 class="text-xl font-semibold text-orange-600 mb-3">Composição Química</h4>
+                        <p class="text-gray-700 mb-4">
+                            A ferrugem é composta principalmente por óxidos de ferro hidratados, sendo os principais:
+                        </p>
+                        <ul class="list-disc list-inside text-gray-600 space-y-2">
+                            <li><strong>Fe₂O₃·H₂O</strong> - Óxido de ferro(III) hidratado (hematita)</li>
+                            <li><strong>FeO(OH)</strong> - Hidróxido de óxido de ferro (goethita)</li>
+                            <li><strong>Fe₃O₄</strong> - Óxido de ferro(II,III) (magnetita)</li>
+                            <li>Compostos complexos com impurezas do ambiente</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h4 class="text-xl font-semibold text-orange-600 mb-3">Mecanismo da Corrosão</h4>
+                        <p class="text-gray-700 mb-4">
+                            A formação da ferrugem ocorre através de um processo eletroquímico espontâneo com quatro componentes essenciais:
+                        </p>
+                        <ul class="list-disc list-inside text-gray-600 space-y-2">
+                            <li><strong>Ânodo:</strong> Área onde o ferro se oxida (Fe → Fe²⁺ + 2e⁻)</li>
+                            <li><strong>Cátodo:</strong> Área onde o oxigênio se reduz (O₂ + 2H₂O + 4e⁻ → 4OH⁻)</li>
+                            <li><strong>Eletrólito:</strong> Água com sais dissolvidos (condutividade)</li>
+                            <li><strong>Camada de ferrugem:</strong> Atua como membrana porosa</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+                        <h4 class="text-xl font-semibold text-orange-600 mb-4">Processo de Formação da Ferrugem</h4>
+                        <img src="https://placehold.co/800x400" alt="Diagrama detalhado mostrando o processo de corrosão do ferro com áreas anódicas e catódicas, formação de íons e deposição de óxidos hidratados" class="rounded-lg w-full h-48 object-cover mb-4">
+                        
+                        <div class="bg-orange-50 p-4 rounded-lg">
+                            <h5 class="font-semibold text-orange-800 mb-2">Reações Químicas da Ferrugem</h5>
+                            <p class="text-orange-700 text-sm">
+                                <strong>Oxidação no ânodo:</strong><br>
+                                2Fe → 2Fe²⁺ + 4e⁻<br><br>
+                                <strong>Redução no cátodo:</strong><br>
+                                O₂ + 2H₂O + 4e⁻ → 4OH⁻<br><br>
+                                <strong>Formação do hidróxido:</strong><br>
+                                2Fe²⁺ + 4OH⁻ → 2Fe(OH)₂<br><br>
+                                <strong>Oxidação final:</strong><br>
+                                4Fe(OH)₂ + O₂ → 2Fe₂O₃·H₂O + 2H₂O
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h4 class="text-xl font-semibold text-orange-600 mb-3">Fatores que Aceleram a Ferrugem</h4>
+                        <ul class="list-disc list-inside text-gray-600 space-y-2">
+                            <li><strong>Umidade:</strong> Presença de água como eletrólito</li>
+                            <li><strong>Oxigênio:</strong> Necessário para as reações de redução</li>
+                            <li><strong>Eletrólitos:</strong> Sais (cloretos) aumentam condutividade</li>
+                            <li><strong>pH ácido:</strong> Acelera a dissolução do ferro</li>
+                            <li><strong>Temperatura:</strong> Maior temperatura acelera reações</li>
+                            <li><strong>Tensão mecânica:</strong> Áreas tensionadas corroem mais</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Métodos de Prevenção -->
+            <div class="mt-8 bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Métodos de Prevenção e Proteção</h3>
+                
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-blue-800 mb-2">Revestimentos Protetores</h4>
+                        <ul class="list-disc list-inside text-blue-700 text-sm space-y-1">
+                            <li>Pintura (esmaltes, epóxi)</li>
+                            <li>Galvanização (zinco)</li>
+                            <li>Eletrodeposição (cromo, níquel)</li>
+                            <li>Plastic coating (PVC, polietileno)</li>
+                            <li>Anodização (para alumínio)</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-green-800 mb-2">Proteção Eletroquímica</h4>
+                        <ul class="list-disc list-inside text-green-700 text-sm space-y-1">
+                            <li>Proteção catódica (ânodos de sacrifício)</li>
+                            <li>Proteção por corrente impressa</li>
+                            <li>Inibidores de corrosão</li>
+                            <li>Controle do ambiente</li>
+                            <li>Projeto adequado (evitar áreas de retenção)</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-purple-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-purple-800 mb-2">Materiais Resistentes</h4>
+                        <ul class="list-disc list-inside text-purple-700 text-sm space-y-1">
+                            <li>Aços inoxidáveis</li>
+                            <li>Ligas resistentes à corrosão</li>
+                            <li>Materiais compostos</li>
+                            <li>Plásticos de engenharia</li>
+                            <li>Tratamentos superficiais</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Impacto Econômico e Exemplos -->
+            <div class="mt-8 bg-gray-100 p-6 rounded-lg">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Impacto Econômico e Exemplos Práticos</h3>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-semibold text-gray-700 mb-2">Custos da Corrosão</h4>
+                        <ul class="list-disc list-inside text-gray-600 space-y-1">
+                            <li>3-4% do PIB mundial em custos diretos</li>
+                            <li>US$ 2,5 trilhões anuais em prejuízos</li>
+                            <li>25% da produção de aço vai para reposição</li>
+                            <li>Altos custos de manutenção e inspeção</li>
+                            <li>Perdas por paradas de produção</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-semibold text-gray-700 mb-2">Exemplos de Danos</h4>
+                        <ul class="list-disc list-inside text-gray-600 space-y-1">
+                            <li>Estruturas de pontes e viadutos</li>
+                            <li>Cascos de navios e plataformas offshore</li>
+                            <li>Dutos e tanques de armazenamento</li>
+                            <li>Infraestrutura elétrica e telecomunicações</li>
+                            <li>Veículos automotivos e equipamentos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+                <h3 class="text-xl font-semibold text-yellow-800 mb-3">Curiosidades sobre a
